@@ -1,4 +1,4 @@
-(function(window) {
+(function (window) {
 
   /*
    * Create a function named setMyLightGreen
@@ -11,7 +11,11 @@
    * use a dom method to select an element where it's ID matches the value of lightId
    * on this dom element, set the className to 'light-green'
    */
-
+  const setMyLightGreen = function () {
+    let lightId = this.dataset.lightId;
+    let lightIDMatch = document.getElementById(lightId);
+    lightIDMatch.className = 'light-green';
+  };
 
   /*
    * Create a function named setMyLightClass
@@ -25,6 +29,12 @@
    * on this dom element, set the className to the value of desiredClass
    */
 
+   const setMyLightClass = function(event, desiredClass){
+     let lightId = this.dataset.data-light-id;
+     let lightIDMatch = document.getElementById(lightId);
+     lightIDMatch.className =  desiredClass;
+   }
+
 
   /*
    * Declare 15 constants btn1, btn2, btn3, ...
@@ -32,6 +42,22 @@
    * to the button that has an id of the same name.
    */
 
+   const btn1 = document.getElementById('btn1');
+   const btn2 = document.getElementById('btn2');
+   const btn3 = document.getElementById('btn3');
+   const btn4 = document.getElementById('btn4');
+   const btn5 = document.getElementById('btn5');
+   const btn6 = document.getElementById('btn6');
+   const btn7 = document.getElementById('btn7');
+   const btn8 = document.getElementById('btn8');
+   const btn9 = document.getElementById('btn9');
+   const btn10 = document.getElementById('btn10');
+   const btn11 = document.getElementById('btn11');
+   const btn12 = document.getElementById('btn12');
+   const btn13 = document.getElementById('btn13');
+   const btn14 = document.getElementById('btn14');
+   const btn15 = document.getElementById('btn15');
+   
 
   /*
    * Add a click event listener to btn1
@@ -42,6 +68,8 @@
    * to set the context to the correct object (the current context)
    */
 
+   btn1.addEventListener('click', function(){
+     setMyLightGreen.apply(this)});
 
   /*
    * Add a click event listener to btn2
@@ -51,6 +79,8 @@
    * using the Function prototype method: apply
    * to set the context to the correct object
    */
+
+   btn2.addEventListener('click', () => setMyLightGreen.apply(event.target));
 
 
   /*
